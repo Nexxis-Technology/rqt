@@ -75,16 +75,16 @@ the <b>Plugins</b> menu.</p>
         app.setWindowIcon(icon)
         app.aboutToQuit.connect(self.closeEvent)
         return app
-    
+
     def apply_nexxis_style_sheet(self, app):
         app.setStyleSheet(
-        "QMainWindow { background-color: #302B2D }" "QMainWindow { alternate-background-color: #3a3536 }" "QMainWindow { border-color: #211f1f }" "QMainWindow { color: #bdbdbd }"     
+        "QMainWindow { background-color: #302B2D }" "QMainWindow { alternate-background-color: #3a3536 }" "QMainWindow { border-color: #211f1f }" "QMainWindow { color: #bdbdbd }"
         "QDockWidget { background-color: #302B2D }" "QDockWidget { alternate-background-color: #3a3536 }" "QDockWidget { color: #bdbdbd }"
         "QWidget { background-color: #302B2D }" "QWidget { alternate-background-color: #3a3536 }" "QWidget { color: #bdbdbd }"
         "QFrame { background-color: #302B2D }" "QFrame { alternate-background-color: #3a3536 }" "QFrame { selection-background-color: #302B2D }" "QFrame { border-color: #211f1f }" "QFrame { color: #bdbdbd }"
         "QGroupBox { background-color: #302B2D }" "QGroupBox { alternate-background-color: #3a3536 }" "QGroupBox { border-color: #211f1f }" "QGroupBox { color: #bdbdbd }"
         "QTableView { background-color: #3a3536 }" "QTableView { selection-background-color: #6b6969 }" "QTableView { alternate-background-color: #3a3536 }" "QTableView { color: #bdbdbd }"
-        
+
         "QLineEdit { background-color: #3a3536 }" "QLineEdit { alternate-background-color: #3a3536 }" "QLineEdit { border-color: #211f1f }" "QLineEdit { color: #bdbdbd }"
         "QDialog { background-color: #302B2D }" "QDialog { alternate-background-color: #3a3536 }" "QDialog { border-color: #211f1f }" "QDialog { color: #bdbdbd }"
         "QScrollBar { background-color: #3a3536 }" "QScrollBar { alternate-background-color: #3a3536 }" "QScrollBar { border-color: #211f1f }" "QScrollBar { color: #bdbdbd }"
@@ -115,7 +115,7 @@ the <b>Plugins</b> menu.</p>
     def closeEvent(self):
         print('Shutting down Magneto')
         import signal
-        os.kill(os.getppid(), signal.SIGHUP)
+        os.killpg(os.getpgid(os.getppid()), signal.SIGINT)
         sys.exit(0)
 
 def main():
