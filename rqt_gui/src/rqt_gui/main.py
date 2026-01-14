@@ -95,6 +95,16 @@ the <b>Plugins</b> menu.</p>
         "QMenuBar { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4a4243, stop: 0.3 #3a3536, stop: 0.9 #3a3536, stop:1 #023B2D) }" "QMenuBar { color: #bdbdbd }"
         "QMenuBar { border: 1px solid #211f1f }" "QMenuBar { border-top: 1px solid #4a4243 }"
         "QMenuBar { selection-background-color: #6b6969 }" "QMenuBar { selection-color: white }"
+
+        "QSlider::handle:horizontal:disabled, QSlider::handle:vertical:disabled { background-color: #343031; border: 1px solid #262223; }"
+        "QLineEdit:disabled { background-color: #3a3536; border: 1px solid #2a2627; color: #6f6f6f; }"
+        "QCheckBox:disabled { color: #6f6f6f; }"
+        "QGroupBox:disabled { color: #6f6f6f; }"
+        "QTableView:disabled { background-color: #3a3536; alternate-background-color: #3a3536; gridline-color: #2a2627; color: #6f6f6f; }"
+        "QHeaderView:disabled { background-color: #3a3536; color: #6f6f6f; }"
+        "QPushButton:disabled { background-color: #3a3536; border: 1px solid #2a2627; color: #6f6f6f; }"
+        "QMenu:disabled { background-color: #3a3536; color: #6f6f6f; }"
+        "QMenuBar:disabled { background-color: #3a3536; color: #6f6f6f; }"
         )
 
     def _add_plugin_providers(self):
