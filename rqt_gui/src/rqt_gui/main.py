@@ -123,9 +123,16 @@ the <b>Plugins</b> menu.</p>
         reload_importer.add_reload_path(os.path.join(os.path.dirname(__file__), *('..',) * 4))
 
     def closeEvent(self):
-        print('Shutting down Magneto')
+        print('Shutting down magneto\'s processes')
         import signal
-        os.killpg(os.getpgid(os.getppid()), signal.SIGINT)
+        pgid = os.getpgrp()
+        if pgid <= 1:
+            print(f'Refusing to signal suspicious process group {pgid}.')
+        else:
+            try:
+                os.killpg(pgid, signal.SIGINT)
+            except ProcessLookupError:
+                print(f'Process group {pgid} no longer exists.')
         sys.exit(0)
 
 def main():
